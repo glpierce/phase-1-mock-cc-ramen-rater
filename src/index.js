@@ -53,7 +53,7 @@ function submitForm(event)  {
     postRamen(newRamenObj)
 }
 
-//Submits new POST request to the server containing the new ramen object's information
+//Submits new POST request to the server containing the new ramen object's information then calls addRamens on the response to add ramen to ramenArray
 function postRamen(newRamenObj) {
     const postObj = {
         method: 'POST',
