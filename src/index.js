@@ -5,7 +5,7 @@ let ramenArray = []
 document.addEventListener('DOMContentLoaded', event => {
     getRamens()
     document.querySelector(`#new-ramen`).addEventListener(`submit`, (event) => submitForm(event))
-    document.querySelector(`#deleteButton`).addEventListener(`submit`, (event) => deleteRamen(event))
+    document.querySelector(`#deleteButton`).addEventListener(`click`, (event) => deleteRamen(event))
 })
 
 //Initiates GET request to server and passes parsed response to addRamens function
