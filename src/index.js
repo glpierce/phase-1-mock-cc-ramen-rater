@@ -1,6 +1,9 @@
 // Array for locally storing ramen information
 let ramenArray = []
 
+//Variable pointing to #ramen-detail HTML div element (center ramen display container)
+const ramenDetailsDisplay = document.querySelector(`#ramen-detail`)
+
 //Gets ramens from server and sets up form event listener and delete button event listener after the DOM is loaded
 document.addEventListener('DOMContentLoaded', event => {
     getRamens()
@@ -28,11 +31,10 @@ function addRamens(ramenObj) {
 
 //If a ramen image is clicked on, makes central ramen display show that ramen's info 
 function presentSelectedRamen(event) {
-    const ramenDetails = document.querySelector(`#ramen-detail`)
     const ramenObj = ramenArray.find(element => element.imgElement === event.target)
-    ramenDetails.querySelector(`img`).src = ramenObj.image
-    ramenDetails.querySelector(`h2`).textContent = ramenObj.name
-    ramenDetails.querySelector(`h3`).textContent = ramenObj.restaurant
+    ramenDetailsDisplay.querySelector(`img`).src = ramenObj.image
+    ramenDetailsDisplay.querySelector(`h2`).textContent = ramenObj.name
+    ramenDetailsDisplay.querySelector(`h3`).textContent = ramenObj.restaurant
     document.querySelector(`#rating-display`).textContent = ramenObj.rating
     document.querySelector(`#comment-display`).textContent = ramenObj.comment
 }
@@ -96,10 +98,9 @@ function removeFromDOM(deletedRamenObj) {
 //Randomly chooses a ramen from the ramenArray and presents it
 function presentRandomRamen() {
     const displayRamen = ramenArray[Math.floor(Math.random() * ramenArray.length)]
-    const ramenDetails = document.querySelector(`#ramen-detail`)
-    ramenDetails.querySelector(`img`).src = displayRamen.image
-    ramenDetails.querySelector(`h2`).textContent = displayRamen.name
-    ramenDetails.querySelector(`h3`).textContent = displayRamen.restaurant
+    ramenDetailsDisplay.querySelector(`img`).src = displayRamen.image
+    ramenDetailsDisplay.querySelector(`h2`).textContent = displayRamen.name
+    ramenDetailsDisplay.querySelector(`h3`).textContent = displayRamen.restaurant
     document.querySelector(`#rating-display`).textContent = displayRamen.rating
     document.querySelector(`#comment-display`).textContent = displayRamen.comment
 }
